@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btnDescarga" onclick="getPaises('http://localhost:8090/api/paises');">GET</button>
+    <button id="btnDescarga" onclick="postPaises('http://localhost:8090/api/paises');">POST</button>
+    
+
+</body>
+<script> 
+    const getPaises = function(TheUrl) { 
+        fetch(TheUrl)
+            .then(response => response.json())
+                .then(data => console.log(data));
+    }
+
+    
+
+    const postPaises = function(TheUrl) { 
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var contenido = JSON.stringify({
+            "Codigo":4,
+            "Nombre":"venezuela",
+            "ImgPais":"venezuela.png"
+        }); 
+
+        var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: contenido,
+        
+        };
+
+        fetch(TheUrl, requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+    }
+
+</script>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NavBar para el administrador</title>
+
+    <!-- css --> 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/fancybox/jquery.fancybox.css" rel="stylesheet"> 
+    <link href="css/flexslider.css" rel="stylesheet" /> 
+    <link href="css/style.css" rel="stylesheet" />
+
+</head>
+<body>
+    <!-- ==== NavBar para el LogIn como administrador ==== -->
+    <header>
+        <div class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><i class="icon-info-blocks material-icons">location_on</i>V-Vuelos</a>
+                </div>
+                <div class="navbar-collapse collapse ">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a class="waves-effect waves-dark" href="index.html">Home</a></li>
+
+                <!-- Primer Menú dentro del NavBar -->
+
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle waves-effect waves-dark">Seguridad<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="waves-effect waves-dark" href="#">Crear Usuario</a></li>
+                            <li><a class="waves-effect waves-dark" href="#">Cambiar Contraseña</a></li>
+                            <li><a class="waves-effect waves-dark" href="#">Asignar Roles</a></li>
+                        </ul>
+                    </li> 
+                    
+                <!-- Botton de cerrar sesión dentro del NavBar -->
+                
+                    <li><a class="waves-effect waves-dark" href="login.html">LogIn</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+</body>
+</html>
