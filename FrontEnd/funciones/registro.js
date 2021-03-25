@@ -1,5 +1,5 @@
 var axios = require('axios')
-const { get } = require('https')
+const { get } = require('https');
 
 // Crear Cliente
 
@@ -16,19 +16,22 @@ async function crearCliente_Normal() {
 
     const config = {
         method: 'post',
-        url: clienteValCorreoClient,
+        url: clienteValUsuarioRegistro,
         data: {
-            "username": username
+            "correo": email,
+            "usuario": username
         }
     }
 
+    console.log('creando cliente')
     var existeCorreo;
     var existeUsuario;
-
+    console.log('creando cliente')
     await axios(config).then(value => {
         console.log(value.data)
         if (value.data.existeCorreo > 0) {
             alert('Este Correo Electrónico ya existe')
+            console.log('creando cliente')
             existeCorreo = true
             return true
         } else {
@@ -36,19 +39,21 @@ async function crearCliente_Normal() {
         }
         if (value.data.existeUsuario > 0) {
             alert('Este Nombre de Usuario ya existe')
+            console.log('creando cliente')
             existeCorreo = true
             return true
         } else {
             existeUsuario = false
         }
-
+        console.log('creando cliente')
     }).catch(err => { console.log(err) })
-
+    console.log('creando cliente')
     if (existeCorreo === false && existeUsuario === false) {
         console.log('Cliente Creado')
         await agregarCliente().catch(err => { console.log(err) })
         window.location.replace('../index.html')
     }
+    console.log('creando cliente')
 }
 
 
@@ -62,15 +67,15 @@ async function agregarCliente() {
         url: clientesUrl,
         data: {
             "NombreCliente": nombre,
-            "Apellidos": apellidos,
-            "CorreoElectronico": correo,
+            "Apellidos": apellido1 + apellido2,
+            "CorreoElectronico": email,
             "Usuario": usuario,
-            "Contrasena": pass,
+            "Contrasena": passwd,
         }
     }
 
     console.log(
-        nombre, apellidos, correo, usuario, pass
+        nombre, apellido1, apellido2, email, usuario, passwd
     )
 
     await axios(config).then(value => {

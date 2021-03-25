@@ -12,7 +12,6 @@ CREATE TABLE BITACORA (
 
     BitacoraID varchar(100),
     FechaHora varchar(100),
-    FechaHora varchar(100),
     CodigoRegistro varchar(100),
     TipoRegistro varchar(100),
     Descripcion varchar(100),
