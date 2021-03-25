@@ -113,15 +113,19 @@ async function validarCorreoUsuario(correo, usuario) {
         console.log(error)
     }
 }
+
+
+//METODO DE CLIENTES PERO EN USUARIOS POR QUE SI
+
 async function validarUsuarioRegistro(correo, username) {
     try {
         let conn = await sql.connect(config)
         let validarCorreo = await conn.request()
             .input('correo', sql.VarChar, correo)
-            .query('select count(*) as existeCorreo from Usuarios where CorreoElec = @correo')
+            .query('select count(*) as existeCorreo from CLIENTES where CorreoElectronico = @correo')
         let validarUsuario = await conn.request()
             .input('usuario', sql.VarChar, username)
-            .query('select count(*) as existeUser from Usuarios where NombreUsuario = @usuario')
+            .query('select count(*) as existeUser from Clientes where Usuario = @usuario')
 
         let result = {
             "existeCorreo": validarCorreo.recordset[0].existeCorreo,
